@@ -1,0 +1,24 @@
+---
+title: 'NYCU: Chlorophyll a as microcystin surrogate'
+author: "Jeff Hollister and Betty Kreakie"
+date: "December 4, 2017"
+output: word_document
+---
+
+# What
+A talk, entitled "Using Chlorophyll *a* as a surrogate for exceeding Microcystin Health Advisory Concentrations" will be presented.
+
+# Where
+The talk is to be presented at an EPA Region 1 workshop, "Cyanobacteria - Monitoring and Treating Drinking Water: A Workshop for Water Suppliers".  The workshop is to be held at the UMASS Medical School in Worcester, MA.
+
+# Why 
+An invitation was extended to Jeff and Betty to present this work.  It is important as we can present directly to the practitioners, drinking water suppliers, who can potentially use the outputs of our work to help manage the risk of cyanobacteria blooms in drinking water.
+
+# Who
+Jeff Hollister is giving the talk.  Research was conducted by Jeff Hollister and Betty Kreakie.  Ted Lavery (Region 1) organized the workshop and extended the invitation.
+
+# When
+Thursday, Dec 14, 2017 from 9am - 3pm
+
+
+
