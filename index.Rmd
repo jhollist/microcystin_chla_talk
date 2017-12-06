@@ -20,37 +20,81 @@ class: center, middle, inverse
 
 ---
 
-- So of course, I asked Twitter
+# The Problem: What is a bloom?
 
-<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Some help, twitter. What is definition of an algal bloom? rate of increase? exceed some min conc? <a href="https://twitter.com/GLEONetwork?ref_src=twsrc%5Etfw">@GLEONetwork</a>  <a href="https://twitter.com/KathyCottingham?ref_src=twsrc%5Etfw">@KathyCottingham</a> <a href="https://twitter.com/not_Klaatu?ref_src=twsrc%5Etfw">@not_Klaatu</a></p>&mdash; Jeff Hollister (@jhollist) <a href="https://twitter.com/jhollist/status/611192646015520768?ref_src=twsrc%5Etfw">June 17, 2015</a></blockquote>
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+## So of course, I asked Twitter
+
+![](tweet1.jpg)
+---
+
+# The Problem: What is a bloom?
+
+## Got some of this variety
+
+![](tweet2.jpg)
+
+![](tweet3.jpg)
 
 ---
 
-- Got some of this variety
+# The Problem: What is a bloom?
 
-<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr"><a href="https://twitter.com/WiscLimnology?ref_src=twsrc%5Etfw">@WiscLimnology</a> <a href="https://twitter.com/CareyLab?ref_src=twsrc%5Etfw">@CareyLab</a> <a href="https://twitter.com/jhollist?ref_src=twsrc%5Etfw">@jhollist</a> <a href="https://twitter.com/GLEONetwork?ref_src=twsrc%5Etfw">@GLEONetwork</a>  Snot green water?</p>&mdash; Jim Garvey (@fishysiu) <a href="https://twitter.com/fishysiu/status/611197989047148544?ref_src=twsrc%5Etfw">June 17, 2015</a></blockquote>
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+## Got some of the more quantitative
 
-<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">.<a href="https://twitter.com/jhollist?ref_src=twsrc%5Etfw">@jhollist</a> <a href="https://twitter.com/fishysiu?ref_src=twsrc%5Etfw">@fishysiu</a> <a href="https://twitter.com/CareyLab?ref_src=twsrc%5Etfw">@CareyLab</a> <a href="https://twitter.com/GLEONetwork?ref_src=twsrc%5Etfw">@GLEONetwork</a> I know it when I see it?</p>&mdash; Center for Limnology (@WiscLimnology) <a href="https://twitter.com/WiscLimnology/status/611244709076430848?ref_src=twsrc%5Etfw">June 17, 2015</a></blockquote>
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+![](tweet5.jpg)
 
 ---
 
-- Got some of the more quantitative
+# The Problem: What is a bloom?
 
-<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">1/2 <a href="https://twitter.com/jhollist?ref_src=twsrc%5Etfw">@jhollist</a> <a href="https://twitter.com/fishysiu?ref_src=twsrc%5Etfw">@fishysiu</a> <a href="https://twitter.com/WiscLimnology?ref_src=twsrc%5Etfw">@WiscLimnology</a> <a href="https://twitter.com/CareyLab?ref_src=twsrc%5Etfw">@CareyLab</a> &#39;Bloom&#39; is a loose term 4 an abundance of algae; con varies in marine &amp; freshwater environ</p>&mdash; GLEON (@GLEONetwork) <a href="https://twitter.com/GLEONetwork/status/611247529104154624?ref_src=twsrc%5Etfw">June 17, 2015</a></blockquote>
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+## and then the one closest to reality
 
-<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">2/2 <a href="https://twitter.com/jhollist?ref_src=twsrc%5Etfw">@jhollist</a> <a href="https://twitter.com/fishysiu?ref_src=twsrc%5Etfw">@fishysiu</a> <a href="https://twitter.com/WiscLimnology?ref_src=twsrc%5Etfw">@WiscLimnology</a> <a href="https://twitter.com/CareyLab?ref_src=twsrc%5Etfw">@CareyLab</a> via <a href="https://twitter.com/caweirich?ref_src=twsrc%5Etfw">@caweirich</a> <a href="https://twitter.com/TrexLab?ref_src=twsrc%5Etfw">@TrexLab</a> definition: 1.5X baseline phycocyanin above <a href="http://t.co/u1eULIpFT5">http://t.co/u1eULIpFT5</a></p>&mdash; GLEON (@GLEONetwork) <a href="https://twitter.com/GLEONetwork/status/611251043364683776?ref_src=twsrc%5Etfw">June 17, 2015</a></blockquote>
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+![](tweet6.jpg)
 
 ---
 
-- and then the one closest to reality
+# The Problem: What is a bloom?
 
-<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr"><a href="https://twitter.com/jhollist?ref_src=twsrc%5Etfw">@jhollist</a> Alternative view: when the public notices and starts phoning?</p>&mdash; Kathy Cottingham (@KathyCottingham) <a href="https://twitter.com/KathyCottingham/status/611641747886710785?ref_src=twsrc%5Etfw">June 18, 2015</a></blockquote>
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+## Take away message
+
+- No real concensus
+- Should be relative to some baseline
+  - Clarity?
+  - Public concern?
+  - Health risk?
+- Still left with a decision
+
+---
+
+# The Problem: What is a bloom?
+
+## What could we use?
+
+- Toxins?
+  - Data few and far between
+- Cell counts, bio-volume, etc.
+  - Myriad problems
+- Chlorophyll
+  - Available, but is it associated with other cyano indicators
+
+---
+
+# The Problem: What is a bloom?
+
+## Chlorophyll relationships
+
+- Scatter
+- Lester
+- Possible
+
+---
+class: center, middle, inverse
+
+# Problem: 
+
+---
+
+
 
 
 ---
