@@ -16,18 +16,18 @@ output:
 ---
 class: center, middle, inverse
 
-# The Problem: What is a bloom?
+# Problem: What is a bloom?
 
 ---
 
-# The Problem: What is a bloom?
+# Problem: What is a bloom?
 
 ## So of course, I asked Twitter
 
 ![](tweet1.jpg)
 ---
 
-# The Problem: What is a bloom?
+# Problem: What is a bloom?
 
 ## Got some of this variety
 
@@ -37,7 +37,7 @@ class: center, middle, inverse
 
 ---
 
-# The Problem: What is a bloom?
+# Problem: What is a bloom?
 
 ## Got some of the more quantitative
 
@@ -45,7 +45,7 @@ class: center, middle, inverse
 
 ---
 
-# The Problem: What is a bloom?
+# Problem: What is a bloom?
 
 ## and then the one closest to reality
 
@@ -53,7 +53,7 @@ class: center, middle, inverse
 
 ---
 
-# The Problem: What is a bloom?
+# Problem: What is a bloom?
 
 ## Take away message
 
@@ -66,7 +66,7 @@ class: center, middle, inverse
 
 ---
 
-# The Problem: What is a bloom?
+# Problem: What is a bloom?
 
 ## What could we use?
 
@@ -78,54 +78,90 @@ class: center, middle, inverse
   - Available, but is it associated with other cyano indicators
 
 ---
+class: center, middle, inverse
 
-# The Problem: What is a bloom?
+# Possible Solution: Chlorophyll as a proxy for Microcystin
 
-## Chlorophyll relationships
+---
+
+# Possible Solution: Chlorphyll as a proxy
+
+## Chlorophyll relationships with mcyst
 
 - Scatter
 - Lester
-- Possible
+- Possible, but
+- still don't know what to call "a bloom"
+
+---
+
+# Possible Solution: Chlorphyll as a proxy
+
+## Exsiting Microcystin Advisory Levels 
+
+- WHO
+- EPA
 
 ---
 class: center, middle, inverse
 
-# Problem: 
+# Our Solution: Chlorophyll and Microcystin
 
 ---
 
+# Our Solution: Chlorophyll and Microsystin
 
+## Conditional probability 
 
-
----
-# Slide with left and right columns
-
-.left-column[
-- Ecologists 
-- Computational focus
-  - Enough to be dangerous
-- 3 FTE
-  - Myself
-  - Betty Kreakie
-  - Bryan Milstead
-- 2 Post-docs
-  - Farnaz Nojavan
-  - Stephen Shivers
-]
-
-.right-column[
-```{r}
-icon::fa("rocket", size = 4)
-```
-]
+- What is it?
+- What it tells us?
 
 ---
 
-# No column slide
+# Our Solution: Chlorophyll and Microsystin
 
-- Apply computational approaches to understand water quality impacts in lakes
-  - Modelling (Not this talk!, but see Farnaz's talk)
-- Open Science
+## Data
+
+---
+
+# Our Solution: Chlorophyll and Microsystin
+
+## Results
+
+- cp plots
+
+---
+
+# Our Solution: Chlorophyll and Microsystin
+
+## Results
+
+- tables
+
+---
+
+# Our Solution: Chlorophyll and Microsystin
+
+## Validation with 2012
+
+- How did it work finding exceedances?
+
+---
+class: center, middle, inverse
+
+# 
+
+---
+
+# Applications and caveats
+
+## How to use
+
+---
+
+# Applications and caveats
+
+## Important considerations
 
 ---
 # Thanks!
