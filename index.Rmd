@@ -215,6 +215,14 @@ class: center, middle, inverse
 ## Important considerations
 
 ---
+
+# Animated GIF
+
+### and stuff
+
+![animated gif](https://media.giphy.com/media/kP3cKoaFwUFA4/giphy.gif)
+
+---
 # Thanks!
 .center[
 ## Jeff Hollister
