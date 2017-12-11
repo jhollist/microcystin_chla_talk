@@ -20,6 +20,27 @@ Worcester, MA</div>
 
 ---
 
+
+```
+## Warning: package 'tidyverse' was built under R version 3.4.2
+```
+
+```
+## Warning: package 'tibble' was built under R version 3.4.1
+```
+
+```
+## Warning: package 'tidyr' was built under R version 3.4.2
+```
+
+```
+## Warning: package 'purrr' was built under R version 3.4.2
+```
+
+```
+## Warning: package 'dplyr' was built under R version 3.4.2
+```
+
 class: center, middle, inverse
 
 # Problem: What is a bloom?
@@ -53,7 +74,7 @@ class: center, middle, inverse
 
 # Problem: What is a bloom?
 
-## and then the one closest to reality
+## And then the one closest to reality
 
 ![](tweet6.jpg)
 
@@ -77,11 +98,13 @@ class: center, middle, inverse
 ## What could we use?
 
 - Toxins?
+  - Most direct measure
   - Data few and far between
 - Cell counts, bio-volume, etc.
   - Myriad problems
 - Chlorophyll
-  - Available, but is it associated with other cyano indicators
+  - Available
+  - Associated with cyanobacteria?
 
 ---
 class: center, middle, inverse
@@ -92,21 +115,71 @@ class: center, middle, inverse
 
 # Possible Solution: Chlorphyll as a proxy
 
-## Chlorophyll relationships with mcyst
+.left-column[
+- 2007 NLA show association
+- Yuan *et al* (2014). Freshwater Biology 
+- But, what is a bloom?
+]
 
-- Scatter
-- Lester
-- Possible, but
-- still don't know what to call "a bloom"
+.right-column[
 
+&lt;img src="hollister_kreakie_fig2.gif" style="margin-top: 80px; width: 90%; height: 90%;"&gt;&lt;/img&gt;
+
+.image-credit[Hollister and Kreakie. (2016). https://f1000research.com/articles/5-151/v2]
+
+]
 ---
 
 # Possible Solution: Chlorphyll as a proxy
 
 ## Exsiting Microcystin Advisory Levels 
 
-- WHO
-- EPA
+&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; Source &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Type &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt;   Concentration &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; USEPA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Child Drinking Water Advisory &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 0.3 µg/L &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; WHO &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Drinking Water &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 1 µg/L &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; USEPA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Adult Drinking Water Advisory &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 1.6 µg/L &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; WHO &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Recreational: Low Prob. of Effect &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 2-4 µg/L &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; WHO &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Recreational: Moderate Prob. of Effect &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 10-20 µg/L &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; WHO &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Recreational: High Prob. of Effect &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 20-2000 µg/L &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; WHO &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Recreational: Very High Prob. of Effect &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; &amp;gt;2000 µg/L &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
 
 ---
 class: center, middle, inverse
@@ -117,16 +190,15 @@ class: center, middle, inverse
 
 # Our Solution: Chlorophyll and Microsystin
 
-## Conditional probability 
+## Assocation chlorohpyll a  concentration with Microcystin guidance levels
 
-- What is it?
-- What it tells us?
-
----
-
-# Our Solution: Chlorophyll and Microsystin
-
-## Data
+- Conditional probability 
+    - Probability of one event happening, given another has already happened
+    - Our approach based entirely on data
+    - History in environemntal applications
+- Data
+    - 2007 NLA
+    - EPA and WHO guidance levels
 
 ---
 
@@ -155,7 +227,7 @@ class: center, middle, inverse
 ---
 class: center, middle, inverse
 
-# 
+# Applications and Caveats
 
 ---
 

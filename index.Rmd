@@ -14,6 +14,10 @@ output:
       highlightLines: true
       countIncrementalSlides: true
 ---
+```{r echo=FALSE, message=FALSE}
+library(tidyverse)
+```
+
 class: center, middle, inverse
 
 # Problem: What is a bloom?
@@ -47,7 +51,7 @@ class: center, middle, inverse
 
 # Problem: What is a bloom?
 
-## and then the one closest to reality
+## And then the one closest to reality
 
 ![](tweet6.jpg)
 
@@ -71,11 +75,13 @@ class: center, middle, inverse
 ## What could we use?
 
 - Toxins?
+  - Most direct measure
   - Data few and far between
 - Cell counts, bio-volume, etc.
   - Myriad problems
 - Chlorophyll
-  - Available, but is it associated with other cyano indicators
+  - Available
+  - Associated with cyanobacteria?
 
 ---
 class: center, middle, inverse
@@ -86,21 +92,67 @@ class: center, middle, inverse
 
 # Possible Solution: Chlorphyll as a proxy
 
-## Chlorophyll relationships with mcyst
+.left-column[
+- 2007 NLA show association
+- Yuan *et al* (2014). Freshwater Biology 
+- But, what is a bloom?
+]
 
-- Scatter
-- Lester
-- Possible, but
-- still don't know what to call "a bloom"
+.right-column[
 
+<img src="hollister_kreakie_fig2.gif" style="margin-top: 80px; width: 90%; height: 90%;"></img>
+
+.image-credit[Hollister and Kreakie. (2016). https://f1000research.com/articles/5-151/v2]
+
+]
 ---
 
 # Possible Solution: Chlorphyll as a proxy
 
 ## Exsiting Microcystin Advisory Levels 
 
-- WHO
-- EPA
+```{r microcystin_levels,echo=FALSE,results='asis', warning=FALSE}
+source_of_stnd <- c("WHO",
+                    "WHO",
+                    "WHO",
+                    "WHO",
+                    "WHO",
+                    "USEPA",
+                    "USEPA")
+type_of_stnd <- c("Recreational: Low Prob. of Effect",
+                  "Recreational: Moderate Prob. of Effect",
+                  "Recreational: High Prob. of Effect",
+                  "Recreational: Very High Prob. of Effect",
+                  "Drinking Water",
+                  "Child Drinking Water Advisory",
+                  "Adult Drinking Water Advisory")
+concentration <- factor(c("2-4 µg/L",
+                   "10-20 µg/L",
+                   "20-2000 µg/L",
+                   ">2000 µg/L",
+                   "1 µg/L",
+                   "0.3 µg/L",
+                   "1.6 µg/L"), 
+                   levels = c("0.3 µg/L",
+                              "1 µg/L",
+                              "1.6 µg/L",
+                              "2-4 µg/L",
+                              "10-20 µg/L",
+                              "20-2000 µg/L",
+                              ">2000 µg/L"))
+#note <- c("Low probability of adverse health effects",
+#          "Moderate probability of adverse health effects",
+#          "High probability of adverse health effects, These higher #concentrations typically only seen in visible scums/algal mats",
+#          "Very high probability of adverse health effects",
+#          "",
+#          "Children younger than school age",
+#          "Individuals School age and older")
+mc_conc_table <- data.frame(source_of_stnd, type_of_stnd, concentration) %>%
+  arrange(concentration) %>% data.frame
+names(mc_conc_table)<-c("Source","Type","  Concentration")
+#pandoc.table(mc_conc_table,justify = "left" ,split.table = 120, split.cells  = c(20,20,20))
+knitr::kable(mc_conc_table, format = "html")
+```
 
 ---
 class: center, middle, inverse
@@ -111,16 +163,15 @@ class: center, middle, inverse
 
 # Our Solution: Chlorophyll and Microsystin
 
-## Conditional probability 
+## Assocation chlorohpyll a  concentration with Microcystin guidance levels
 
-- What is it?
-- What it tells us?
-
----
-
-# Our Solution: Chlorophyll and Microsystin
-
-## Data
+- Conditional probability 
+    - Probability of one event happening, given another has already happened
+    - Our approach based entirely on data
+    - History in environemntal applications
+- Data
+    - 2007 NLA
+    - EPA and WHO guidance levels
 
 ---
 
@@ -149,7 +200,7 @@ class: center, middle, inverse
 ---
 class: center, middle, inverse
 
-# 
+# Applications and Caveats
 
 ---
 

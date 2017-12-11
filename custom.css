@@ -23,3 +23,9 @@ a {
     background-color: #205493;
 }
 
+.image-credit {
+  position: absolute;
+  bottom: 3em;
+  padding-right: 4em;
+  font-size: 55%;
+}
