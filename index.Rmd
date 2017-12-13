@@ -303,8 +303,8 @@ type_of_stnd <- c("Recreational: Low Prob. of Effect",
                   "Recreational: High Prob. of Effect",
                   "Recreational: Very High Prob. of Effect",
                   "Drinking Water",
-                  "Child Drinking Water Advisory",
-                  "Adult Drinking Water Advisory")
+                  "Infant and Pre-school Child Drinking Water Advisory",
+                  "School Age Child and Adult Drinking Water Advisory")
 concentration <- c("2-4 µg/L",
                    "10-20 µg/L",
                    "20-2000 µg/L",
@@ -350,8 +350,7 @@ class: center, middle, inverse
 ---
 
 # Results: Chlorophyll and Microsystin
-
-![](hollister_kreakie_fig1.gif)
+<img src="hollister_kreakie_fig1.gif" style="width: 80%; height: 80%";></img>
 
 ---
 
@@ -370,11 +369,9 @@ knitr::kable(mc_chla_tbl, format = "html")#,format="latex")
 
 # Our Solution: Chlorophyll and Microsystin
 
-## Validation with 2012
+## Validation with 2012 National Lakes Assessment
 
-- How did it work finding exceedances?
-
-```{r}
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
 nla12_tox <- read_csv("https://www.epa.gov/sites/production/files/2016-11/nla2012_algaltoxins_08192016.csv") %>%
   select(UID, MICL_RESULT)
 nla12_chla <- read_csv("https://www.epa.gov/sites/production/files/2016-11/nla2012_chla_wide.csv") %>%
@@ -382,11 +379,53 @@ nla12_chla <- read_csv("https://www.epa.gov/sites/production/files/2016-11/nla20
 nla12 <- full_join(nla12_chla, nla12_tox) %>%
   na.omit() %>%
   mutate(child_cp_exceed = CHLL_RESULT >= 23,
-         actual_exceed = MICL_RESULT >= 0.3)
-ta_perc <- 100*sum(nla12$child_cp_exceed==nla12$actual_exceed)/nrow(nla12)
-fn_perc <- 100*sum(nla12$child_cp_exceed == 0 & nla12$actual_exceed == 1)/nrow(nla12)
+         actual_child_exceed = MICL_RESULT >= 0.3, 
+         adult_cp_exceed = CHLL_RESULT >= 84,
+         actual_adult_exceed = MICL_RESULT >= 1.6)
+ta_perc_child <- 100*sum(nla12$child_cp_exceed==nla12$actual_child_exceed)/nrow(nla12)
+fn_perc_child <- 100*sum(nla12$child_cp_exceed == 0 & nla12$actual_child_exceed == 1)/nrow(nla12)
+ta_perc_adult <- 100*sum(nla12$adult_cp_exceed==nla12$actual_adult_exceed)/nrow(nla12)
+fn_perc_adult <- 100*sum(nla12$adult_cp_exceed == 0 & nla12$actual_adult_exceed == 1)/nrow(nla12)
 ```
 
+- EPA Infant and pre-school children (23 µg/L Chl *a* - 0.3 µg/L Microcystin)
+    - Total Accuracy: `r round(ta_perc_child, 0)`%
+    - False Negative: `r round(fn_perc_child, 0)`%
+- EPA School-age children and adults (84 µg/L Chl *a* -  1.6 µg/L Microcystin)
+    - Total Accuracy: `r round(ta_perc_adult, 0)`%
+    - False Negative: `r round(fn_perc_adult, 0)`%
+
+.left-column-even[
+
+### Infant and Pre-school
+
+```{r echo=FALSE} 
+df <- conmat_to_df(table(nla12$child_cp_exceed, nla12$actual_child_exceed)) #%>%
+  #mutate(" " = row.names(.), "  " = "Chl a > 23") %>%
+  #select("  ", " ", "FALSE", "TRUE") 
+
+knitr::kable(df, format = "html") #%>%
+  #kableExtra::collapse_rows(columns = 1) %>%
+  #kableExtra::add_header_above(c(" ", " ","Microcystin > 0.3 µg/L" = 2))
+```
+
+]
+
+.right-column-even[
+
+### School-age and Adult
+
+```{r echo=FALSE} 
+df <- conmat_to_df(table(nla12$adult_cp_exceed, nla12$actual_adult_exceed)) #%>%
+  #mutate(" " = row.names(.), "  " = "Chl a > 84") %>%
+  #select("  ", " ", "FALSE", "TRUE") 
+
+knitr::kable(df, format = "html") #%>%
+  #kableExtra::collapse_rows(columns = 1) %>%
+  #kableExtra::add_header_above(c(" ", " ","Microcystin > 1.6 µg/L" = 2))
+
+```
+]    
 
 ---
 class: center, middle, inverse
@@ -399,7 +438,7 @@ class: center, middle, inverse
 
 ## How to use
 
-- Research applications
+- Identify potential past bloom events
 - Screening tool
 
 ---
@@ -408,18 +447,10 @@ class: center, middle, inverse
 
 ## Important considerations
 
-- It is just a surrogate
-- Probability of exceeding is managment decision
-- These numbers based on national data
-- Individual lakes will have different relationshis
-
----
-
-# Animated GIF
-
-### and stuff
-
-![animated gif](https://media.giphy.com/media/kP3cKoaFwUFA4/giphy.gif)
+- Not a replacment for toxins
+- Concentration to target is a managment decision
+- National data
+  - Local/Regional variation obscured
 
 ---
 # Thanks!

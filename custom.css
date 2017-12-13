@@ -1,4 +1,8 @@
-/* some custom css for slides
+/* some custom css for slides */
+
+body {
+  font-family: sans-serif;
+}
 
 /* Two-column layout */
       .left-column {
@@ -12,6 +16,21 @@
         width: 55%;
         float: right;
         margin-top: -75px;
+      }
+      
+/* Two-column layout even*/
+      .left-column-even {
+        color: black;
+        width: 50%;
+        float: left;
+        margin-top: 1em;
+      }
+      
+      .right-column-even {
+        color: black;
+        width: 50%;
+        float: right;
+        margin-top: 1em;
       }
 
 a {

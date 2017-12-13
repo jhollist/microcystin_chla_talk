@@ -130,7 +130,7 @@ class: center, middle, inverse
 &lt;tbody&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; USEPA &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; Child Drinking Water Advisory &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Infant and Pre-school Child Drinking Water Advisory &lt;/td&gt;
    &lt;td style="text-align:left;"&gt; 0.3 µg/L &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
@@ -140,7 +140,7 @@ class: center, middle, inverse
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; USEPA &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; Adult Drinking Water Advisory &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; School Age Child and Adult Drinking Water Advisory &lt;/td&gt;
    &lt;td style="text-align:left;"&gt; 1.6 µg/L &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
@@ -188,8 +188,7 @@ class: center, middle, inverse
 ---
 
 # Results: Chlorophyll and Microsystin
-
-![](hollister_kreakie_fig1.gif)
+&lt;img src="hollister_kreakie_fig1.gif" style="width: 80%; height: 80%";&gt;&lt;/img&gt;
 
 ---
 
@@ -278,90 +277,71 @@ class: center, middle, inverse
 
 # Our Solution: Chlorophyll and Microsystin
 
-## Validation with 2012
-
-- How did it work finding exceedances?
+## Validation with 2012 National Lakes Assessment
 
 
-```r
-nla12_tox &lt;- read_csv("https://www.epa.gov/sites/production/files/2016-11/nla2012_algaltoxins_08192016.csv") %&gt;%
-  select(UID, MICL_RESULT)
-```
 
-```
-## Parsed with column specification:
-## cols(
-##   .default = col_character(),
-##   UID = col_integer(),
-##   VISIT_NO = col_integer(),
-##   MICL_HOLDING_TIME = col_integer(),
-##   MICL_MDL = col_double(),
-##   MICL_RESULT = col_double(),
-##   MICL_RL = col_double(),
-##   MICX_HOLDING_TIME = col_integer(),
-##   MICX_MDL = col_double(),
-##   MICX_RESULT = col_double(),
-##   MICX_RL = col_double(),
-##   MICL_SAMPLE_ID = col_integer(),
-##   MICX_SAMPLE_ID = col_integer()
-## )
-```
+- EPA Infant and pre-school children (23 µg/L Chl *a* - 0.3 µg/L Microcystin)
+    - Total Accuracy: 79%
+    - False Negative: 6%
+- EPA School-age children and adults (84 µg/L Chl *a* -  1.6 µg/L Microcystin)
+    - Total Accuracy: 90%
+    - False Negative: 4%
 
-```
-## See spec(...) for full column specifications.
-```
+.left-column-even[
 
-```r
-nla12_chla &lt;- read_csv("https://www.epa.gov/sites/production/files/2016-11/nla2012_chla_wide.csv") %&gt;%
-  select(UID, CHLL_RESULT)
-```
+### Infant and Pre-school
 
-```
-## Parsed with column specification:
-## cols(
-##   .default = col_character(),
-##   UID = col_integer(),
-##   CHLL_DILUTION_FACTOR = col_integer(),
-##   CHLL_EXTRACT = col_double(),
-##   CHLL_HOLDING_TIME = col_integer(),
-##   CHLL_MDL = col_double(),
-##   CHLL_RESULT = col_double(),
-##   CHLL_RL = col_double(),
-##   CHLL_SAMPLEVOL = col_integer(),
-##   CHLL_VOLUME_ADJUST = col_integer(),
-##   CHLX_DILUTION_FACTOR = col_integer(),
-##   CHLX_EXTRACT = col_double(),
-##   CHLX_HOLDING_TIME = col_integer(),
-##   CHLX_MDL = col_double(),
-##   CHLX_RESULT = col_double(),
-##   CHLX_RL = col_double(),
-##   CHLX_SAMPLEVOL = col_integer(),
-##   CHLX_VOLUME_ADJUST = col_double()
-## )
-## See spec(...) for full column specifications.
-```
+&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt;   &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; FALSE &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; TRUE &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; FALSE &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 833 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 77 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; TRUE &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 176 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 134 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
 
-```
-## Warning: 1 parsing failure.
-## row # A tibble: 1 x 5 col     row                col               expected actual expected   &lt;int&gt;              &lt;chr&gt;                  &lt;chr&gt;  &lt;chr&gt; actual 1  1041 CHLL_VOLUME_ADJUST no trailing characters     .5 file # ... with 1 more variables: file &lt;chr&gt;
-```
+]
 
-```r
-nla12 &lt;- full_join(nla12_chla, nla12_tox) %&gt;%
-  na.omit() %&gt;%
-  mutate(child_cp_exceed = CHLL_RESULT &gt;= 23,
-         actual_exceed = MICL_RESULT &gt;= 0.3)
-```
+.right-column-even[
 
-```
-## Joining, by = "UID"
-```
+### School-age and Adult
 
-```r
-ta_perc &lt;- 100*sum(nla12$child_cp_exceed==nla12$actual_exceed)/nrow(nla12)
-fn_perc &lt;- 100*sum(nla12$child_cp_exceed == 0 &amp; nla12$actual_exceed == 1)/nrow(nla12)
-```
-
+&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt;   &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; FALSE &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; TRUE &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; FALSE &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1071 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 52 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; TRUE &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 69 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 28 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+]    
 
 ---
 class: center, middle, inverse
@@ -374,7 +354,7 @@ class: center, middle, inverse
 
 ## How to use
 
-- Research applications
+- Identify potential past bloom events
 - Screening tool
 
 ---
@@ -383,18 +363,10 @@ class: center, middle, inverse
 
 ## Important considerations
 
-- It is just a surrogate
-- Probability of exceeding is managment decision
-- These numbers based on national data
-- Individual lakes will have different relationshis
-
----
-
-# Animated GIF
-
-### and stuff
-
-![animated gif](https://media.giphy.com/media/kP3cKoaFwUFA4/giphy.gif)
+- Not a replacment for toxins
+- Concentration to target is a managment decision
+- National data
+  - Local/Regional variation obscured
 
 ---
 # Thanks!
