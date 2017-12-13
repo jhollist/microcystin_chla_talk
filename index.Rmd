@@ -260,11 +260,11 @@ class: center, middle, inverse
 ## What could we use?
 
 .left-column[
+- Cell counts, bio-volume, etc.
+  - Myriad problems
 - Toxins
   - Most direct measure
   - Data few and far between
-- Cell counts, bio-volume, etc.
-  - Myriad problems
 - Chlorophyll
   - Available
   - Associated with cyanobacteria?
