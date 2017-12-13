@@ -102,25 +102,25 @@ wgt<- rep(1,nrow(nla_dat))
 set.seed(19720923)
 epa_child_cp <- condprob(xX = nla_dat$log_chla,xY = nla_dat$log_micro, 
                      xImpair = log10(mc_guides[1]), ProbComp = "gt", Exceed = "gte",
-                     ci = TRUE, R = 100, xW=wgt)
+                     ci = TRUE, R = 10000, xW=wgt)
 
 mc_chla[1] <- get_chla(epa_child_cp,0.5)
 set.seed(19720923)
 who_drink_cp <- condprob(xX = nla_dat$log_chla,xY = nla_dat$log_micro, 
                      xImpair = log10(mc_guides[2]), ProbComp = "gt", Exceed = "gte",
-                     ci = TRUE, R = 100, xW=wgt)
+                     ci = TRUE, R = 10000, xW=wgt)
 
 mc_chla[2] <- get_chla(who_drink_cp,0.5)
 set.seed(19720923)
 epa_adult_cp <- condprob(xX = nla_dat$log_chla,xY = nla_dat$log_micro, 
                      xImpair = log10(mc_guides[3]), ProbComp = "gt", Exceed = "gte",
-                     ci = TRUE, R = 100, xW=wgt)
+                     ci = TRUE, R = 10000, xW=wgt)
 
 mc_chla[3] <- get_chla(epa_adult_cp,0.5)
 set.seed(19720923)
 who_rec_low1_cp <- condprob(xX = nla_dat$log_chla,xY = nla_dat$log_micro, 
                      xImpair = log10(mc_guides[4]), ProbComp = "gt", Exceed = "gte",
-                     ci = TRUE, R = 100, xW=wgt)
+                     ci = TRUE, R = 10000, xW=wgt)
 
 mc_chla[4] <- get_chla(who_rec_low1_cp,0.5)
 epa_child <- NULL
@@ -359,7 +359,7 @@ class: center, middle, inverse
 ## Results
 
 ```{r mc_chla_table, results='asis', echo=FALSE}
-mc_chla_tbl <- data.frame(seq(0.1,0.9,0.1),mc_chla)
+mc_chla_tbl <- data.frame(seq(0.1,0.9,0.1),round(mc_chla, 0))
 names(mc_chla_tbl)<-c("Cond. Probability","USEPA Child (0.3 µg/L)", "WHO Drink (1 µg/L)", "USEPA Adult (1.6 µg/L)", "WHO Recreational (2 µg/L) ")
 #pandoc.table(mc_chla_tbl,justify = "left" ,split.table = 120, split.cells  = c(20,20,20))
 knitr::kable(mc_chla_tbl, format = "html")#,format="latex")
