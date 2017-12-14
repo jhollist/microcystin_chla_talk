@@ -411,6 +411,7 @@ fn_perc_child_40 <- 100*sum(nla12$child_cp_exceed_40 == 0 & nla12$actual_child_e
 - EPA Infant and pre-school children - 50% Cond. Prob. (23 µg/L Chl *a* - 0.3 µg/L Microcystin)
     - Total Accuracy: `r round(ta_perc_child_50, 0)`%
     - False Negative: `r round(fn_perc_child_50, 0)`%
+    
 <!--
 - EPA Infant and pre-school children - 40% Cond. Prob. (11 µg/L Chl *a* - 0.3 µg/L Microcystin)
     - Total Accuracy: `r round(ta_perc_child_40, 0)`%
