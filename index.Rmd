@@ -3,7 +3,7 @@ title: "Using Chlorophyll *a*  as a surrogate for exceeding Microcystin Health A
 subtitle: "Cyanobacteria - Monitoring and Treating Drinking Water: A Workshop for Water Suppliers"
 author: "Jeff Hollister and Betty Kreakie"
 date: |
-  | 2017-12-014
+  | 2017-12-14
   | Worcester, MA
 output:
   xaringan::moon_reader:
