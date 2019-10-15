@@ -3,7 +3,7 @@ title: "Using Chlorophyll *a*  as a surrogate for exceeding Microcystin Health A
 subtitle: "Cyanobacteria - Monitoring and Treating Drinking Water: A Workshop for Water Suppliers"
 author: "Jeff Hollister and Betty Kreakie"
 date: |
-  | 2017-12-014
+  | 2017-12-14
   | Worcester, MA
 output:
   xaringan::moon_reader:
@@ -102,25 +102,25 @@ wgt<- rep(1,nrow(nla_dat))
 set.seed(19720923)
 epa_child_cp <- condprob(xX = nla_dat$log_chla,xY = nla_dat$log_micro, 
                      xImpair = log10(mc_guides[1]), ProbComp = "gt", Exceed = "gte",
-                     ci = TRUE, R = 100, xW=wgt)
+                     ci = TRUE, R = 10000, xW=wgt)
 
 mc_chla[1] <- get_chla(epa_child_cp,0.5)
 set.seed(19720923)
 who_drink_cp <- condprob(xX = nla_dat$log_chla,xY = nla_dat$log_micro, 
                      xImpair = log10(mc_guides[2]), ProbComp = "gt", Exceed = "gte",
-                     ci = TRUE, R = 100, xW=wgt)
+                     ci = TRUE, R = 10000, xW=wgt)
 
 mc_chla[2] <- get_chla(who_drink_cp,0.5)
 set.seed(19720923)
 epa_adult_cp <- condprob(xX = nla_dat$log_chla,xY = nla_dat$log_micro, 
                      xImpair = log10(mc_guides[3]), ProbComp = "gt", Exceed = "gte",
-                     ci = TRUE, R = 100, xW=wgt)
+                     ci = TRUE, R = 10000, xW=wgt)
 
 mc_chla[3] <- get_chla(epa_adult_cp,0.5)
 set.seed(19720923)
 who_rec_low1_cp <- condprob(xX = nla_dat$log_chla,xY = nla_dat$log_micro, 
                      xImpair = log10(mc_guides[4]), ProbComp = "gt", Exceed = "gte",
-                     ci = TRUE, R = 100, xW=wgt)
+                     ci = TRUE, R = 10000, xW=wgt)
 
 mc_chla[4] <- get_chla(who_rec_low1_cp,0.5)
 epa_child <- NULL
@@ -240,28 +240,41 @@ class: center, middle, inverse
 
 ## Take away message
 
-- No real concensus
-- Should be relative to some baseline
-  - Clarity?
-  - Public concern?
-  - Health risk?
-- Still left with a decision
+.left-column[
+- No real consensus
+- Different definitions
+    - Visual cues
+    - Public concern
+    - Health risk
+- Still left with a decision on how to quantify
+]
 
+.right-column[
+
+<img src="scouting_bloom.jpg" style="width: 70%; height: 70%; margin-left: 70px; margin-top: -50px;"></img>
+]
 ---
 
 # Problem: What is a bloom?
 
 ## What could we use?
 
-- Toxins?
+.left-column[
+- Toxins
   - Most direct measure
-  - Data few and far between
+  - Data not widely available
 - Cell counts, bio-volume, etc.
-  - Myriad problems
+  - Data not widely available
 - Chlorophyll
-  - Available
+  - Data available
   - Associated with cyanobacteria?
+] 
 
+.right-column[
+
+<img src="yawgoo_fall.jpg" style="width: 80%; height: 80%;"></img>
+
+]
 ---
 class: center, middle, inverse
 
@@ -337,29 +350,33 @@ class: center, middle, inverse
 
 # Our Solution: Chlorophyll and Microsystin
 
-## Assocation chlorohpyll a  concentration with Microcystin guidance levels
+## Assocating chlorohpyll *a*  concentration with Microcystin guidance levels
 
+- Hollister and Kreakie (2016) Associations between chlorophyll a and various microcystin health advisory concentrations. <https://f1000research.com/articles/5-151/v2>
 - Conditional probability 
     - Probability of one event happening, given another has already happened
     - Our approach based entirely on data
-    - History in environemntal applications
+    - History in environmental applications
 - Data
     - 2007 NLA
     - EPA and WHO guidance levels
 
 ---
 
-# Results: Chlorophyll and Microsystin
-<img src="hollister_kreakie_fig1.gif" style="width: 80%; height: 80%";></img>
+# Results: Chlorophyll *a*  and Microsystin
+
+.center[
+<img src="hollister_kreakie_fig1.jpg" style="width: 70%; height: 70%";></img>
+]
 
 ---
 
-# Results: Chlorophyll and Microsystin
+# Results: Chlorophyll *a*  and Microsystin
 
 ## Results
 
 ```{r mc_chla_table, results='asis', echo=FALSE}
-mc_chla_tbl <- data.frame(seq(0.1,0.9,0.1),mc_chla)
+mc_chla_tbl <- data.frame(seq(0.1,0.9,0.1),round(mc_chla, 0))
 names(mc_chla_tbl)<-c("Cond. Probability","USEPA Child (0.3 µg/L)", "WHO Drink (1 µg/L)", "USEPA Adult (1.6 µg/L)", "WHO Recreational (2 µg/L) ")
 #pandoc.table(mc_chla_tbl,justify = "left" ,split.table = 120, split.cells  = c(20,20,20))
 knitr::kable(mc_chla_tbl, format = "html")#,format="latex")
@@ -367,7 +384,7 @@ knitr::kable(mc_chla_tbl, format = "html")#,format="latex")
 
 ---
 
-# Our Solution: Chlorophyll and Microsystin
+# Our Solution: Chlorophyll *a*  and Microsystin
 
 ## Validation with 2012 National Lakes Assessment
 
@@ -379,25 +396,30 @@ nla12_chla <- read_csv("https://www.epa.gov/sites/production/files/2016-11/nla20
 nla12 <- full_join(nla12_chla, nla12_tox) %>%
   na.omit() %>%
   mutate(child_cp_exceed = CHLL_RESULT >= 23,
+         child_cp_exceed_40 = CHLL_RESULT >= 11,
          actual_child_exceed = MICL_RESULT >= 0.3, 
          adult_cp_exceed = CHLL_RESULT >= 84,
          actual_adult_exceed = MICL_RESULT >= 1.6)
-ta_perc_child <- 100*sum(nla12$child_cp_exceed==nla12$actual_child_exceed)/nrow(nla12)
-fn_perc_child <- 100*sum(nla12$child_cp_exceed == 0 & nla12$actual_child_exceed == 1)/nrow(nla12)
+ta_perc_child_50 <- 100*sum(nla12$child_cp_exceed==nla12$actual_child_exceed)/nrow(nla12)
+fn_perc_child_50 <- 100*sum(nla12$child_cp_exceed == 0 & nla12$actual_child_exceed == 1)/nrow(nla12)
 ta_perc_adult <- 100*sum(nla12$adult_cp_exceed==nla12$actual_adult_exceed)/nrow(nla12)
 fn_perc_adult <- 100*sum(nla12$adult_cp_exceed == 0 & nla12$actual_adult_exceed == 1)/nrow(nla12)
+ta_perc_child_40 <- 100*sum(nla12$child_cp_exceed_40==nla12$actual_child_exceed)/nrow(nla12)
+fn_perc_child_40 <- 100*sum(nla12$child_cp_exceed_40 == 0 & nla12$actual_child_exceed == 1)/nrow(nla12)
 ```
 
-- EPA Infant and pre-school children (23 µg/L Chl *a* - 0.3 µg/L Microcystin)
-    - Total Accuracy: `r round(ta_perc_child, 0)`%
-    - False Negative: `r round(fn_perc_child, 0)`%
-- EPA School-age children and adults (84 µg/L Chl *a* -  1.6 µg/L Microcystin)
-    - Total Accuracy: `r round(ta_perc_adult, 0)`%
-    - False Negative: `r round(fn_perc_adult, 0)`%
+- EPA Infant and pre-school children - 50% Cond. Prob. (23 µg/L Chl *a* - 0.3 µg/L Microcystin)
+    - Total Accuracy: `r round(ta_perc_child_50, 0)`%
+    - False Negative: `r round(fn_perc_child_50, 0)`%
+    
+<!--
+- EPA Infant and pre-school children - 40% Cond. Prob. (11 µg/L Chl *a* - 0.3 µg/L Microcystin)
+    - Total Accuracy: `r round(ta_perc_child_40, 0)`%
+    - False Negative: `r round(fn_perc_child_40, 0)`%
+-->
+.center[
 
-.left-column-even[
-
-### Infant and Pre-school
+#### Infant and Pre-school - 50% Cond. Prob.
 
 ```{r echo=FALSE} 
 df <- conmat_to_df(table(nla12$child_cp_exceed, nla12$actual_child_exceed)) #%>%
@@ -411,12 +433,13 @@ knitr::kable(df, format = "html") #%>%
 
 ]
 
+<!--
 .right-column-even[
 
-### School-age and Adult
+#### Infant and Pre-school - 40% Cond. Prob.
 
 ```{r echo=FALSE} 
-df <- conmat_to_df(table(nla12$adult_cp_exceed, nla12$actual_adult_exceed)) #%>%
+df <- conmat_to_df(table(nla12$child_cp_exceed_40, nla12$actual_child_exceed)) #%>%
   #mutate(" " = row.names(.), "  " = "Chl a > 84") %>%
   #select("  ", " ", "FALSE", "TRUE") 
 
@@ -426,7 +449,7 @@ knitr::kable(df, format = "html") #%>%
 
 ```
 ]    
-
+-->
 ---
 class: center, middle, inverse
 
@@ -436,25 +459,23 @@ class: center, middle, inverse
 
 # Applications and caveats
 
-## How to use
-
 - Identify potential past bloom events
 - Screening tool
+  - Helps with limited resources
+    - Test for microcystin only when more likely to find it
+  - Caveat: Current numbers based on National data
+  - Caveat: Analyzing for toxins, if possible, still better
+- Chlorophyll *a* cutoff to use is management decision
 
----
-
-# Applications and caveats
-
-## Important considerations
-
-- Not a replacment for toxins
-- Concentration to target is a managment decision
-- National data
-  - Local/Regional variation obscured
-
----
-# Thanks!
 .center[
+
+<img src="yawgoo_fall2.jpg" style="width:60%; height:60%;"></img>
+]
+---
+
+
+# Thanks!
+.left-column-even[
 ## Jeff Hollister
 US EPA </br>
 Atlantic Ecology Division </br>
@@ -463,7 +484,16 @@ Narragansett, RI </br>
 `r icon::fa("envelope", size = 1.5)`: [hollister.jeff@epa.gov](mailto:hollister.jeff@epa.gov) </br>
 `r icon::fa("twitter", size = 1.5)`: [jhollist](https://twitter.com/jhollist) </br>
 `r icon::fa("github", size = 1.5)`: [jhollist](https://github.com/jhollist) </br>
-
-Slides created via the R package [**xaringan**](https://github.com/yihui/xaringan).
 ]
+
+.right-column-even[
+## Betty Kreakie
+US EPA </br>
+Atlantic Ecology Division </br>
+Narragansett, RI </br>
+
+`r icon::fa("envelope", size = 1.5)`: [kreakie.betty@epa.gov](mailto:kreakie.betty@epa.gov) </br>
+`r icon::fa("github", size = 1.5)`: [BKreakie](https://github.com/BKreakie) </br>
+]
+
 
